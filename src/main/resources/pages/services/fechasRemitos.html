@@ -1,0 +1,29 @@
+<div th:fragment="content">
+<div class="row">
+    <div class="col-sm-12">        
+        <form action="#" th:action="@{/maintenance/services/remitos/fechasremitos}" th:object="${fechasRemitosInput}" method="post">
+            Proveedor: <input type="text" th:field="*{id}" />
+            <input class="btn btn-default" type="submit" value="Ejecutar"/>              
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+        <table id="fecremtable" class="table">
+            <thead>
+                <tr>  
+                    <th>Fecha Remito<th/>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="fechaRemito : ${fechasRemitos}">
+                    <td th:text="${fechaRemito}"><td/>
+                </tr>
+            </tbody>
+         </table>
+        </div>
+    </div>
+</div> 
+</div>

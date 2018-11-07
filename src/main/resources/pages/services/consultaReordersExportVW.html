@@ -1,0 +1,54 @@
+<div th:fragment="content">
+<div class="row">
+    <div class="col-sm-12">        
+        <form action="#" th:action="@{/maintenance/services/reorders/cantidadreordersprov}" th:object="${inputCantReordProv}" method="post">
+            Proveedor: <input type="text" th:field="*{id}" />
+            Fecha: <input type="date" th:field="*{fecha}" />
+            <input class="btn btn-default" type="submit" value="Ejecutar"/>              
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+        <table id="consreordexpvwtable" class="table">
+            <thead>
+                <tr>  
+                    <th>Codigo Pluma<th/>
+                    <th>Pieza<th/>
+                    <th>Cantidad<th/>
+                    <th>Fecha Importacion<th/>
+                    <th>Centro Costo<th/>
+                    <th>Fecha Hora Reorder<th/>
+                    <th>Año<th/>
+                    <th>Modelo<th/>
+                    <th>Teileartgruppe<th/>
+                    <th>Teileart<th/>	
+                    <th>KNR<th/>
+                    <th>Planta<th/> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="reorder : ${reorders}">
+                    <td th:text="${reorder.codPluma}"><td/>
+                    <td th:text="${reorder.pieza}"><td/>
+                    <td th:text="${reorder.cantidad}"><td/>
+                    <td th:text="${reorder.fechaImportacion}"><td/>
+                    <td th:text="${reorder.centroCosto}"><td/>
+                    <td th:text="${reorder.fechaHoraReorder}"><td/>
+                    <td th:text="${reorder.anio}"><td/>
+                    <td th:text="${reorder.modelo}"><td/>
+                    <td th:text="${reorder.teileartgruppe}"><td/>
+                    <td th:text="${reorder.teileart}"><td/>	
+                    <td th:text="${reorder.knr}"><td/>
+                    <td th:text="${reorder.planta}"><td/> 
+                </tr>
+            </tbody>
+         </table>
+        </div>
+    </div>
+</div> 
+</div>
+
+            

@@ -1,0 +1,51 @@
+<div th:fragment="content">
+<div class="row">
+    <div class="col-sm-12">        
+        <form action="#" th:action="@{/maintenance/services/remitos/remitospendientesvalidacion}" th:object="${remitosPendientesValidacionInput}" method="post">
+            Proveedor: <input type="text" th:field="*{id}" />
+            <input class="btn btn-default" type="submit" value="Ejecutar"/>              
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+        <table id="rempendvaltable" class="table">
+            <thead>
+                <tr>  
+                    <th>Pieza<th/>
+                    <th>Proveedor<th/>
+                    <th>Fecha<th/>
+                    <th>Cantidad<th/>
+                    <th>Remito<th/>
+                    <th>Remito Def Pto Venta<th/>
+                    <th>Remito Def Numero<th/>
+                    <th>Remito Def Fecha<th/>			
+                    <th>Teileart<th/>
+                    <th>Teileartgruppe<th/>
+                    <th>Modelo<th/>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="remitoPendienteValidacion : ${remitosPendientesValidacion}">
+                    <td th:text="${remitoPendienteValidacion.pieza}"><td/>
+                    <td th:text="${remitoPendienteValidacion.proveedor}"><td/>
+                    <td th:text="${remitoPendienteValidacion.fecha}"><td/>
+                    <td th:text="${remitoPendienteValidacion.cantidad}"><td/>
+                    <td th:text="${remitoPendienteValidacion.remito}"><td/>
+                    <td th:text="${remitoPendienteValidacion.remDefPtoVenta}"><td/>
+                    <td th:text="${remitoPendienteValidacion.remDefNumero}"><td/>
+                    <td th:text="${remitoPendienteValidacion.remDefFecha}"><td/>			
+                    <td th:text="${remitoPendienteValidacion.teileart}"><td/>
+                    <td th:text="${remitoPendienteValidacion.teileartgruppe}"><td/>
+                    <td th:text="${remitoPendienteValidacion.modelo}"><td/>
+                </tr>
+            </tbody>
+         </table>
+        </div>
+    </div>
+</div> 
+</div>
+
+            

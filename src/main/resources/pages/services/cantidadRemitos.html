@@ -1,0 +1,32 @@
+<div th:fragment="content">
+<div class="row">
+    <div class="col-sm-12">        
+        <form action="#" th:action="@{/maintenance/services/remitos/cantidadremitos}" th:object="${inputCantRemitos}" method="post">
+            Proveedor: <input type="text" th:field="*{id}" />
+            Fecha: <input type="date" th:field="*{fecha}" />
+            <input class="btn btn-default" type="submit" value="Ejecutar"/>              
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+        <table id="cantremtable" class="table">
+            <thead>
+                <tr>  
+                    <th>Cantidad Piezas<th/>
+                    <th>Cantidad Remitos<th/>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cantRemito : ${cantRemitos}">
+                    <td th:text="${cantRemito.cantidadPiezas}"><td/>
+                    <td th:text="${cantRemito.cantidadRemitos}"><td/>
+                </tr>
+            </tbody>
+         </table>
+        </div>
+    </div>
+</div> 
+</div>

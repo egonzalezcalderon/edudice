@@ -1,0 +1,48 @@
+<div th:fragment="content">
+<div class="row">
+    <div class="col-sm-12">        
+        <form action="#" th:action="@{/maintenance/services/remitos/remitosagrupados}" th:object="${remitosAgrupadosInput}" method="post">
+            Proveedor: <input type="text" th:field="*{id}" />
+            Fecha: <input type="date" th:field="*{fecha}" />
+            <input class="btn btn-default" type="submit" value="Ejecutar"/>              
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+        <table id="remagrtable" class="table">
+            <thead>
+                <tr>  
+                    <th>Pieza<th/>
+                    <th>Proveedor<th/>
+                    <th>Fecha<th/>
+                    <th>Cantidad<th/>
+                    <th>Remito<th/>
+                    <th>Remito Definitivo Id<th/>
+                    <th>Componente<th/>
+                    <th>Modelo<th/>
+                    <th>Teileartgruppe<th/>
+                    <th>Teileart<th/>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="remitoAgrupado : ${remitosAgrupados}">
+                    <td th:text="${remitoAgrupado.pieza}"><td/>
+                    <td th:text="${remitoAgrupado.proveedor}"><td/>
+                    <td th:text="${remitoAgrupado.fecha}"><td/>
+                    <td th:text="${remitoAgrupado.cantidad}"><td/>
+                    <td th:text="${remitoAgrupado.remito}"><td/>
+                    <td th:text="${remitoAgrupado.remitoDefId}"><td/>
+                    <td th:text="${remitoAgrupado.componente}"><td/>
+                    <td th:text="${remitoAgrupado.modelo}"><td/>
+                    <td th:text="${remitoAgrupado.teileartgruppe}"><td/>
+                    <td th:text="${remitoAgrupado.teileart}"><td/>
+                </tr>
+            </tbody>
+         </table>
+        </div>
+    </div>
+</div> 
+</div>

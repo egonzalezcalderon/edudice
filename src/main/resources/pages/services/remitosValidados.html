@@ -1,0 +1,55 @@
+<div th:fragment="content">
+<div class="row">
+    <div class="col-sm-12">        
+        <form action="#" th:action="@{/maintenance/services/remitos/remitosvalidados}" th:object="${remitosValidadosInput}" method="post">
+            Proveedor: <input type="text" th:field="*{id}" />
+            Fecha Desde: <input type="date" th:field="*{fechaDesde}" />
+            Fecha Hasta: <input type="date" th:field="*{fechaHasta}" />
+            <input class="btn btn-default" type="submit" value="Ejecutar"/>              
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+        <table id="remvaltable" class="table">
+            <thead>
+                <tr>  
+                    <th>Pieza<th/>
+                    <th>Proveedor<th/>
+                    <th>Fecha<th/>
+                    <th>Cantidad<th/>
+                    <th>Remito<th/>
+                    <th>Remito Def Pto Venta<th/>
+                    <th>Remito Def Numero<th/>
+                    <th>Remito Def Fecha<th/>			
+                    <th>Rem Def Fecha Validacion<th/>			
+                    <th>Teileart<th/>
+                    <th>Teileartgruppe<th/>
+                    <th>Modelo<th/>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="remitoValidado : ${remitosValidados}">
+                    <td th:text="${remitoValidado.pieza}"><td/>
+                    <td th:text="${remitoValidado.proveedor}"><td/>
+                    <td th:text="${remitoValidado.fecha}"><td/>
+                    <td th:text="${remitoValidado.cantidad}"><td/>
+                    <td th:text="${remitoValidado.remito}"><td/>
+                    <td th:text="${remitoValidado.remDefPtoVenta}"><td/>
+                    <td th:text="${remitoValidado.remDefNumero}"><td/>
+                    <td th:text="${remitoValidado.remDefFecha}"><td/>			
+                    <td th:text="${remitoValidado.remDefFechaValidacion}"><td/>			
+                    <td th:text="${remitoValidado.teileart}"><td/>
+                    <td th:text="${remitoValidado.teileartgruppe}"><td/>
+                    <td th:text="${remitoValidado.modelo}"><td/>
+                </tr>
+            </tbody>
+         </table>
+        </div>
+    </div>
+</div> 
+</div>
+
+            

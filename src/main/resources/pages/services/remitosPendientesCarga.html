@@ -1,0 +1,45 @@
+<div th:fragment="content">
+<div class="row">
+    <div class="col-sm-12">        
+        <form action="#" th:action="@{/maintenance/services/remitos/remitospendientescarga}" th:object="${remitosPendientesCargaInput}" method="post">
+            Proveedor: <input type="text" th:field="*{id}" />
+            <input class="btn btn-default" type="submit" value="Ejecutar"/>              
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+        <table id="rempendcartable" class="table">
+            <thead>
+                <tr>  
+                    <th>Proveedor<th/>
+                    <th>Fecha<th/>
+                    <th>Remito<th/>
+                    <th>Pieza<th/>
+                    <th>Cantidad<th/>
+                    <th>Teileart<th/>
+                    <th>Teileartgruppe<th/>
+                    <th>Modelo<th/>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="remitoPendienteCarga : ${remitosPendientesCarga}">
+                    <td th:text="${remitoPendienteCarga.proveedor}"><td/>
+                    <td th:text="${remitoPendienteCarga.fecha}"><td/>
+                    <td th:text="${remitoPendienteCarga.remito}"><td/>
+                    <td th:text="${remitoPendienteCarga.pieza}"><td/>
+                    <td th:text="${remitoPendienteCarga.cantidad}"><td/>
+                    <td th:text="${remitoPendienteCarga.teileart}"><td/>
+                    <td th:text="${remitoPendienteCarga.teileartgruppe}"><td/>
+                    <td th:text="${remitoPendienteCarga.modelo}"><td/>
+                </tr>
+            </tbody>
+         </table>
+        </div>
+    </div>
+</div> 
+</div>
+
+            

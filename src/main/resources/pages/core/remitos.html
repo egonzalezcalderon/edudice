@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{structure/lawwspage}">
+<head>
+    <title>LawWS - Maintenance Services</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <script th:inline="javascript">
+        /*<![CDATA[*/
+            $(document).ready(function() {
+                
+                $('#remdettable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                }); 
+                
+                $('#remagrtable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });                 
+                
+                $('#cantremtable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });                 
+                
+                $('#rempendcartable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });                 
+                
+                $('#rempendvaltable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });                 
+                
+                $('#fecremtable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });                 
+                
+                $('#consremtable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });                 
+                
+                $('#remvaltable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });                 
+                              
+            });
+        /*]]>*/
+        </script>   
+        <h2>Mantenimiento de Servicios - Remitos</h2>
+        <br>
+        <p>Seleccione el tab segun el servicio que desee testear.</p>
+        <br>
+        <ul class="nav nav-tabs">
+            <li th:class="${remitosValidadosAct ? 'active' : ''}"><a data-toggle="tab" href="#remval">Remitos Validados</a></li>
+            <li th:class="${remitosDetalladosAct ? 'active' : ''}"><a data-toggle="tab" href="#remdet">Detalle Remitos</a></li>
+            <li th:class="${remitosAgrupadosAct ? 'active' : ''}"><a data-toggle="tab" href="#remagr">Remitos Agrupado</a></li>
+            <li th:class="${remitosPendientesValidacionAct ? 'active' : ''}"><a data-toggle="tab" href="#pendval">Pendientes Val</a></li>
+            <li th:class="${remitosPendientesCargaAct ? 'active' : ''}"><a data-toggle="tab" href="#pendcarg">Pendientes Carga</a></li>
+            <li th:class="${fechasRemitosAct ? 'active' : ''}"><a data-toggle="tab" href="#fecrem">Fechas Remitos</a></li>
+            <li th:class="${remitosAct ? 'active' : ''}"><a data-toggle="tab" href="#consrem">Consulta Remitos</a></li>
+            <li th:class="${cantidadremitosact ? 'active' : ''}"><a data-toggle="tab" href="#cantrem">Cantidad Remitos</a></li>
+        </ul>
+        <br><br>
+        <div class="tab-content">
+            <div id="remval" th:class="${remitosValidadosAct ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/remitosValidados :: content"/>
+            </div>
+            <div id="remdet" th:class="${remitosDetalladosAct ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/remitosDetallados :: content"/>
+            </div>
+            <div id="remagr" th:class="${remitosAgrupadosAct ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/remitosAgrupados :: content"/>
+            </div>
+            <div id="pendval" th:class="${remitosPendientesValidacionAct ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/remitosPendientesValidacion :: content"/>
+            </div>
+            <div id="pendcarg" th:class="${remitosPendientesCargaAct ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/remitosPendientesCarga :: content"/>
+            </div>
+            <div id="fecrem" th:class="${fechasRemitosAct ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/fechasRemitos :: content"/>
+            </div>
+            <div id="consrem" th:class="${remitosAct ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/consultaRemitos :: content"/>
+            </div>
+            <div id="cantrem" th:class="${cantidadremitosact ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/cantidadRemitos :: content"/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

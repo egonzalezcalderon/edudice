@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{structure/lawwspage}">
+<head>
+    <title>LawWS - Maintenance Services</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <script th:inline="javascript">
+        /*<![CDATA[*/
+            $(document).ready(function() {
+                $('#cantreordprovtable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });
+                
+                $('#cantreordvwtable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });
+                
+                $('#consreordprovtable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });
+                
+                $('#consreordvwtable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });
+                
+                $('#fecreordprovtable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });
+                
+                $('#fecreordvwtable').DataTable({
+                    'lengthChange': false,
+                    'pageLength': 5,
+                    'info': false,
+                    'filter': false
+                });
+                         
+            });
+        /*]]>*/
+        </script>   
+        <h2>Mantenimiento de Servicios - Reorders</h2>
+        <br>
+        <p>Seleccione el tab segun el servicio que desee testear.</p>
+        <br>
+        <ul class="nav nav-tabs">
+            <li th:class="${fecreordvwact ? 'active' : ''}"><a data-toggle="tab" href="#fecreordvw">Fechas Reord VW</a></li>
+            <li th:class="${fecreordprovact ? 'active' : ''}"><a data-toggle="tab" href="#fecreordprov">Fechas Reord Prov</a></li>
+            <li th:class="${reordersVWAct ? 'active' : ''}"><a data-toggle="tab" href="#consreordvw">Consulta Reord VW</a></li>
+            <li th:class="${consreordprovact ? 'active' : ''}"><a data-toggle="tab" href="#consreordprov">Consulta Reord Prov</a></li>
+            <li th:class="${cantreordvwact ? 'active' : ''}"><a data-toggle="tab" href="#cantreordvw">Cantidad Reord VW</a></li>
+            <li th:class="${cantreordprovact ? 'active' : ''}"><a data-toggle="tab" href="#cantreordprov">Cantidad Reord Prov</a></li>
+        </ul>
+        <br><br>
+        <div class="tab-content">
+            <div id="fecreordvw" th:class="${fecreordvwact ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/fechasReordersVW :: content"/>
+            </div>
+            <div id="fecreordprov" th:class="${fecreordprovact ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/fechasReordersProv :: content"/>
+            </div>
+            <div id="consreordvw" th:class="${reordersVWAct ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/consultaReordersVW :: content"/>
+            </div>
+            <div id="consreordprov" th:class="${consreordprovact ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/consultaReordersProv :: content"/>
+            </div>
+            <div id="cantreordvw" th:class="${cantreordvwact ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/cantidadReordersVW :: content"/>
+            </div>
+            <div id="cantreordprov" th:class="${cantreordprovact ? 'tab-pane fade in active' : 'tab-pane fade'}">
+                <div th:replace="services/cantidadReordersProv :: content"/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

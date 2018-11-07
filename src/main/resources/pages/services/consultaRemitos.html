@@ -1,0 +1,50 @@
+<div th:fragment="content">
+<div class="row">
+    <div class="col-sm-12">        
+        <form action="#" th:action="@{/maintenance/services/remitos/consultaremitos}" th:object="${remitosInput}" method="post">
+            Proveedor: <input type="text" th:field="*{id}" />
+            Fecha: <input type="date" th:field="*{fecha}" />
+            <input class="btn btn-default" type="submit" value="Ejecutar"/>              
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+        <table id="consremtable" class="table">
+            <thead>
+                <tr>  
+                    <th>Pieza<th/>
+                    <th>Proveedor<th/>
+                    <th>Fecha<th/>
+                    <th>Cantidad<th/>
+                    <th>Remito<th/>
+                    <th>Remito Definitivo Id<th/>
+                    <th>Remito Componente<th/>
+                    <th>Modelo<th/>                    
+                    <th>Teileartgruppe<th/>                    
+                    <th>Teileart<th/>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="remito : ${remitos}">
+                    <td th:text="${remito.pieza}"><td/>
+                    <td th:text="${remito.proveedor}"><td/>
+                    <td th:text="${remito.fecha}"><td/>
+                    <td th:text="${remito.cantidad}"><td/>
+                    <td th:text="${remito.remito}"><td/>
+                    <td th:text="${remito.remitoDefId}"><td/>
+                    <td th:text="${remito.componente}"><td/>
+                    <td th:text="${remito.modelo}"><td/>
+                    <td th:text="${remito.teileartgruppe}"><td/>
+                    <td th:text="${remito.teileart}"><td/>
+                </tr>
+            </tbody>
+         </table>
+        </div>
+    </div>
+</div> 
+</div>
+
+            

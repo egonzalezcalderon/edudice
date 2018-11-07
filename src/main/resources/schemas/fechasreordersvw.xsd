@@ -1,0 +1,22 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://ingegc.com/restws/webservice/xml/fechasreordersvw"
+           targetNamespace="http://ingegc.com/restws/webservice/xml/fechasreordersvw"
+           elementFormDefault="qualified">
+
+    <xs:element name="fechasReordersVWRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idproveedor" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="fechasReordersVWResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fechasReordersVW" type="xs:date" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
