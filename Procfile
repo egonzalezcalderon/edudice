@@ -1,1 +1,1 @@
-web: java -Dserver.port=80 -jar target/RestWS-1.0.jar
+web: java -Dserver.port=80 -jar target/edudice.jar
