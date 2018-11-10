@@ -25,4 +25,8 @@ public interface LawWSLogDao extends JpaRepository<LawWSLogRecordDto, Integer> {
     public List<LawWSLogRecordDto> getLogRecordsBetween(
             @Param("dateFrom") Date dateFrom,
             @Param("dateTo") Date dateTo);
+
+    @Query("select max(lr.id) from LawWSLogRecordDto lr")
+    public Integer getMaxId();    
+    
 }

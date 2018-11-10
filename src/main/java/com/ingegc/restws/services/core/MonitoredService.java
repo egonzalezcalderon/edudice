@@ -8,6 +8,7 @@ package com.ingegc.restws.services.core;
 import com.ingegc.restws.bussiness.core.BussinessObject;
 import com.ingegc.restws.bussiness.impl.LawWSLogRecordBo;
 import com.ingegc.restws.daos.core.LawWSLogDao;
+import com.ingegc.restws.dtos.impl.LawWSLogRecordDto;
 import com.ingegc.restws.tools.SessionTool;
 import java.util.Date;
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -42,7 +43,10 @@ public abstract class MonitoredService
     protected void logServiceExecution() {
         logger.info("Metodo Invocado: "+logRecord.serialize());
         try { 
-            lawWSLogDao.save(logRecord.getLogRecordDto());
+        	LawWSLogRecordDto logRec = logRecord.getLogRecordDto();
+        	Integer maxId = lawWSLogDao.getMaxId();
+        	logRec.setId((maxId == null)?1:maxId+1);
+            lawWSLogDao.save(logRec);
         } catch (Exception e) {
             
             logger.severe(

@@ -5,12 +5,14 @@
  */
 package com.ingegc.restws.daos.core;
 
-import com.ingegc.restws.dtos.impl.UserDto;
 import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.ingegc.restws.dtos.impl.UserDto;
 
 /**
  *
@@ -26,5 +28,8 @@ public interface LawWSUsersDao extends JpaRepository<UserDto, Integer> {
     
     @Query("select users from UserDto users where users.name = :name")
     public List<UserDto> getUserWithName(
-            @Param("name") String name);    
+            @Param("name") String name);  
+    
+    @Query("select max(users.id) from UserDto users")
+    public Integer getMaxId();
 }

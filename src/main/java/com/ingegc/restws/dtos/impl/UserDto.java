@@ -5,26 +5,23 @@
  */
 package com.ingegc.restws.dtos.impl;
 
-import com.ingegc.restws.bussiness.impl.UserBo;
-import com.ingegc.restws.dtos.core.TransformableDto;
-import com.ingegc.restws.security.encription.UserPasswordEncryptor;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.JoinColumn;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import static org.apache.tomcat.jni.Lock.name;
+
+import com.ingegc.restws.bussiness.impl.UserBo;
+import com.ingegc.restws.dtos.core.TransformableDto;
+import com.ingegc.restws.security.encription.UserPasswordEncryptor;
 
 /**
  *
@@ -42,8 +39,6 @@ public class UserDto extends TransformableDto<UserBo> implements Serializable {
     
     @Id
     @Column(name="ID")   
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "WEB_SERVICE_USER_SEQ")
-    @SequenceGenerator(name = "WEB_SERVICE_USER_SEQ", sequenceName = "WEB_SERVICE_USER_SEQ", allocationSize = 1, initialValue = 1)        
     public Integer getId() {
         return id;
     }

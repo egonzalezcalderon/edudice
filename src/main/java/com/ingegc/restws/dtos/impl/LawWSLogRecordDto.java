@@ -5,15 +5,14 @@
  */
 package com.ingegc.restws.dtos.impl;
 
-import com.ingegc.restws.bussiness.impl.LogRecordBo;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.ingegc.restws.bussiness.impl.LogRecordBo;
 
 /**
  *
@@ -33,8 +32,6 @@ public class LawWSLogRecordDto{
     protected String ipSource;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "WEB_SERVICE_LOG_SEQ")
-    @SequenceGenerator(name = "WEB_SERVICE_LOG_SEQ", sequenceName = "WEB_SERVICE_LOG_SEQ", allocationSize = 1, initialValue = 1)
     @Column(name="ID")
     public Integer getId() {
         return id;

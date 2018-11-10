@@ -5,16 +5,17 @@
  */
 package com.ingegc.restws.dtos.impl;
 
-import com.ingegc.restws.bussiness.impl.RoleBo;
-import com.ingegc.restws.bussiness.impl.UserBo;
-import com.ingegc.restws.dtos.core.TransformableDto;
 import java.io.Serializable;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.ingegc.restws.bussiness.impl.RoleBo;
+import com.ingegc.restws.dtos.core.TransformableDto;
 
 /**
  *

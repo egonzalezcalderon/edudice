@@ -5,16 +5,17 @@
  */
 package com.ingegc.restws.services.impl;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
+
 import com.ingegc.restws.bussiness.impl.UserRequestBo;
 import com.ingegc.restws.bussiness.impl.UserResponseBo;
 import com.ingegc.restws.daos.core.LawWSUsersDao;
 import com.ingegc.restws.dtos.impl.UserDto;
 import com.ingegc.restws.services.core.CRUDService;
-import com.ingegc.restws.tools.SessionTool;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
 
 /**
  *
@@ -69,7 +70,10 @@ public class UserCRUDService extends CRUDService<
     protected UserResponseBo internalSave(UserRequestBo request) {
         UserResponseBo response = new UserResponseBo();
         try {
-            lawWSUsersDao.save(request.getUser().translate());
+        	UserDto user = request.getUser().translate();
+        	Integer maxId = lawWSUsersDao.getMaxId();
+        	user.setId((maxId == null)?1:maxId+1);
+        	lawWSUsersDao.save(user);
             response.setOperationResult(true, "Usuario Guardado Correctamente");
         } catch (Exception e) {
             response.setOperationResult(false, "Ocurrio un error Guardando el Usuario");
